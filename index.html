@@ -39,7 +39,7 @@ body {
   100% { transform: translateY(-120vh); }
 }
 
-/* 🐾 FLOATING ANIMALS */
+/* 🐾 ANIMALS */
 .animal {
   position: absolute;
   font-size: 35px;
@@ -51,7 +51,7 @@ body {
   100% { transform: translate(0,0); }
 }
 
-/* 🦖 FIGHTING DINOSAURS */
+/* 🦖 FIGHTING DINOS */
 .dino-fight {
   position: absolute;
   font-size: 80px;
@@ -86,6 +86,7 @@ body {
   flex-wrap: wrap;
   height: 100vh;
 }
+
 .envelope-box { text-align: center; cursor: pointer; }
 
 .envelope {
@@ -161,10 +162,9 @@ body {
 <img src="0cc9a18c-3564-4249-b81b-dcfb6bcf6de5.jfif" class="floating-img" style="top:10%;left:20%">
 <img src="3bc884cb-4f7d-415f-80c8-c155f1be844d.jfif" class="floating-img" style="top:60%;left:70%">
 
-<!-- ⭐ STARS -->
+<!-- ⭐ -->
 <div class="star" style="top:10%;left:10%">⭐</div>
 <div class="star" style="top:40%;left:80%">⭐</div>
-<div class="star" style="top:70%;left:30%">⭐</div>
 
 <!-- 🐾 ANIMALS -->
 <div class="animal" style="top:20%;left:70%">🕷</div>
@@ -174,13 +174,12 @@ body {
 <div class="animal" style="top:75%;left:80%">🦈</div>
 <div class="animal" style="top:15%;left:50%">🐊</div>
 
-<!-- 🦖 FIGHT -->
+<!-- 🦖 -->
 <div class="dino-fight dino1">🦖</div>
 <div class="dino-fight dino2">🦖</div>
 
 <!-- 🎈 -->
 <div class="balloon" style="left:10%"></div>
-<div class="balloon" style="left:50%"></div>
 
 <div class="bg-container">
 
@@ -210,16 +209,46 @@ body {
 
 </div>
 
-<!-- SAMPLE LETTER -->
+<!-- 💌 LETTERS -->
+
 <div id="letter1" class="letter-box">
 <h2>From Yumi 💗</h2>
-<p>Happy birthday 💗</p>
+<p>Happy birthday sa among shudita nga pinalanggang Rygrace, always rami naa ni Lhoryn sa imong mga drama sa life ug sa love life, naa rami ig need nimog tabang or masandalan ready permi ang among kwarta arun mang gasto tang tulo sa mga walay pulos nga mga butang HAHAHAHA, btw dai Happy birthday lablab mwaps🫶</p>
+<button onclick="closeLetter()">Close</button>
+</div>
+
+<div id="letter2" class="letter-box">
+<h2>From Jewold 💗</h2>
+<p>Happy Birtyhday Bai. Mau rani akong maingun kay fav color nako kay green, mao nasyang mga dinosaur og godzilla nag away sa gaisano. sorry bai di ko hilig og Talumpati, Happy Birthday bai.</p>
+<button onclick="closeLetter()">Close</button>
+</div>
+
+<div id="letter3" class="letter-box">
+<h2>From LongLong 💗</h2>
+<p>happy birthday athasia thanks for being kind person kay bisag permi mi manugog saimo pero wagihapon na bago imong tan aw sa amoa ug i hope mo tambok naka kay sge rakag kaon amawa kahaha bitaw happy birthday athanasia more birthday to come, letter from imong longlong nga cute</p>
+<button onclick="closeLetter()">Close</button>
+</div>
+
+<div id="letter4" class="letter-box">
+<h2>From Jhonpaul 💗</h2>
+<p>Happy birthday Rygrace Angel Laude I hope na padayon kasa imong mga dreams then tagaan pakag more birthday ni lord and stay healthy and stay humble stay pretty gihapon happy happy birthday unta ma tupad imong mga pangarap bisag Dili pata kaayo ka ilaa kasayod ko na boutan kaayo ka na tao una padayon gihapon kasa imong kabuotan mao ra and happy birthday mahal ka namin🫶🫶🫶🫶🫶🫶🫶🫶🫶🫶🫶🫶🫶🫶🫶🫶🫶🫶🫶🫶🫶</p>
+<button onclick="closeLetter()">Close</button>
+</div>
+
+<div id="letter5" class="letter-box">
+<h2>From RenRen 💗</h2>
+<p>happy birthday maders nakin🥰 enjoy you're day po and take care always padayun saimong kaboutan saamo/saako te, happy birthday</p>
+<button onclick="closeLetter()">Close</button>
+</div>
+
+<div id="letter6" class="letter-box">
+<h2>From JanJan 💗</h2>
+<p>happy birthday erp enjoy you're day and tana dika mabag o padayun saimong pagka maau,wysht diha,happy birthday again</p>
 <button onclick="closeLetter()">Close</button>
 </div>
 
 <script>
 function openEnvelope(num){
-
 let pass = prompt("Enter password:");
 if(pass !== "0416"){
   alert("Wrong password 💔");
@@ -237,7 +266,7 @@ function closeLetter(){
 document.querySelectorAll(".letter-box").forEach(l=>l.style.display="none");
 }
 
-/* 🎆 FIREWORKS */
+/* 🎆 */
 function fireworks(){
 for(let i=0;i<12;i++){
 let f=document.createElement("div");
@@ -250,7 +279,7 @@ setTimeout(()=>f.remove(),1000);
 }
 }
 
-/* 🎊 CONFETTI */
+/* 🎊 */
 function confetti(){
 for(let i=0;i<50;i++){
 let c=document.createElement("div");
