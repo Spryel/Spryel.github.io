@@ -10,10 +10,6 @@ body {
   height: 100vh;
   overflow: hidden;
   font-family: Arial, sans-serif;
-}
-
-/* 🎂 BACKGROUND */
-body {
   background: radial-gradient(circle at top, #ff9a9e, #fad0c4, #ffd1dc);
 }
 
@@ -24,11 +20,9 @@ body {
   font-size: 18px;
   animation: floatStar 6s infinite ease-in-out;
 }
-
 @keyframes floatStar {
-  0% { transform: translateY(0); opacity: 0.6; }
+  0%,100% { transform: translateY(0); opacity: 0.6; }
   50% { transform: translateY(-40px); opacity: 1; }
-  100% { transform: translateY(0); opacity: 0.6; }
 }
 
 /* 🎈 BALLOONS */
@@ -40,23 +34,35 @@ body {
   border-radius: 50%;
   animation: floatBalloon 12s linear infinite;
 }
-
 @keyframes floatBalloon {
   0% { transform: translateY(100vh); }
   100% { transform: translateY(-120vh); }
 }
 
-/* 🦖 🐔 FLOATING EMOJIS */
-.float-emoji {
+/* 🐾 FLOATING ANIMALS */
+.animal {
   position: absolute;
-  font-size: 40px;
-  animation: floatEmoji 10s infinite ease-in-out;
+  font-size: 35px;
+  animation: floatAnimal 10s infinite ease-in-out;
 }
-
-@keyframes floatEmoji {
+@keyframes floatAnimal {
   0% { transform: translate(0,0); }
   50% { transform: translate(60px,-80px); }
   100% { transform: translate(0,0); }
+}
+
+/* 🦖 FIGHTING DINOSAURS */
+.dino-fight {
+  position: absolute;
+  font-size: 80px;
+  animation: fightMove 3s infinite alternate ease-in-out;
+}
+.dino1 { left: 30%; top: 75%; }
+.dino2 { left: 50%; top: 75%; }
+
+@keyframes fightMove {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(30px); }
 }
 
 /* 🖼 IMAGES */
@@ -65,7 +71,6 @@ body {
   width: 120px;
   animation: floatFancy 8s infinite ease-in-out;
 }
-
 @keyframes floatFancy {
   0% { transform: translate(0,0); }
   50% { transform: translate(60px,-60px); }
@@ -81,11 +86,7 @@ body {
   flex-wrap: wrap;
   height: 100vh;
 }
-
-.envelope-box {
-  text-align: center;
-  cursor: pointer;
-}
+.envelope-box { text-align: center; cursor: pointer; }
 
 .envelope {
   width: 110px;
@@ -111,10 +112,7 @@ body {
   transform: rotateX(0deg);
 }
 
-.name {
-  color: white;
-  margin-top: 10px;
-}
+.name { color: white; margin-top: 10px; }
 
 /* 💌 LETTER */
 .letter-box {
@@ -135,11 +133,9 @@ body {
   position: fixed;
   width: 10px;
   height: 10px;
-  background: red;
   border-radius: 50%;
   animation: explode 1s ease-out forwards;
 }
-
 @keyframes explode {
   0% { transform: scale(1); opacity:1; }
   100% { transform: scale(10); opacity:0; }
@@ -150,21 +146,18 @@ body {
   position: fixed;
   width: 6px;
   height: 10px;
-  background: yellow;
   top: -10px;
   animation: fall 3s linear forwards;
 }
-
 @keyframes fall {
   to { transform: translateY(100vh) rotate(360deg); }
 }
-
 </style>
 </head>
 
 <body>
 
-<!-- 🖼 YOUR IMAGES -->
+<!-- 🖼 IMAGES -->
 <img src="0cc9a18c-3564-4249-b81b-dcfb6bcf6de5.jfif" class="floating-img" style="top:10%;left:20%">
 <img src="3bc884cb-4f7d-415f-80c8-c155f1be844d.jfif" class="floating-img" style="top:60%;left:70%">
 
@@ -173,9 +166,17 @@ body {
 <div class="star" style="top:40%;left:80%">⭐</div>
 <div class="star" style="top:70%;left:30%">⭐</div>
 
-<!-- 🦖 🐔 -->
-<div class="float-emoji" style="top:20%;left:70%">🦖</div>
-<div class="float-emoji" style="top:60%;left:20%">🐔</div>
+<!-- 🐾 ANIMALS -->
+<div class="animal" style="top:20%;left:70%">🕷</div>
+<div class="animal" style="top:60%;left:20%">🐉</div>
+<div class="animal" style="top:50%;left:40%">🐒</div>
+<div class="animal" style="top:30%;left:10%">🐋</div>
+<div class="animal" style="top:75%;left:80%">🦈</div>
+<div class="animal" style="top:15%;left:50%">🐊</div>
+
+<!-- 🦖 FIGHT -->
+<div class="dino-fight dino1">🦖</div>
+<div class="dino-fight dino2">🦖</div>
 
 <!-- 🎈 -->
 <div class="balloon" style="left:10%"></div>
@@ -209,7 +210,7 @@ body {
 
 </div>
 
-<!-- LETTER SAMPLE -->
+<!-- SAMPLE LETTER -->
 <div id="letter1" class="letter-box">
 <h2>From Yumi 💗</h2>
 <p>Happy birthday 💗</p>
@@ -220,7 +221,7 @@ body {
 function openEnvelope(num){
 
 let pass = prompt("Enter password:");
-if(pass !== "4/16/2026"){
+if(pass !== "0416"){
   alert("Wrong password 💔");
   return;
 }
@@ -238,11 +239,12 @@ document.querySelectorAll(".letter-box").forEach(l=>l.style.display="none");
 
 /* 🎆 FIREWORKS */
 function fireworks(){
-for(let i=0;i<10;i++){
+for(let i=0;i<12;i++){
 let f=document.createElement("div");
 f.className="firework";
 f.style.left=Math.random()*100+"vw";
 f.style.top=Math.random()*100+"vh";
+f.style.background=`hsl(${Math.random()*360},100%,50%)`;
 document.body.appendChild(f);
 setTimeout(()=>f.remove(),1000);
 }
@@ -250,7 +252,7 @@ setTimeout(()=>f.remove(),1000);
 
 /* 🎊 CONFETTI */
 function confetti(){
-for(let i=0;i<40;i++){
+for(let i=0;i<50;i++){
 let c=document.createElement("div");
 c.className="confetti";
 c.style.left=Math.random()*100+"vw";
