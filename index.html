@@ -13,7 +13,6 @@ body {
   position: relative;
 }
 
-/* Background container that will blur */
 .bg-container {
   position: absolute;
   width: 100%;
@@ -26,19 +25,16 @@ body {
   transition: filter 0.5s ease;
 }
 
-/* Blur only background */
 .bg-container.blur {
   filter: blur(8px);
 }
 
-/* Envelope box */
 .envelope-box {
   text-align: center;
   cursor: pointer;
   perspective: 1000px;
 }
 
-/* Envelope */
 .envelope {
   width: 120px;
   height: 80px;
@@ -48,7 +44,6 @@ body {
   transition: transform 0.6s;
 }
 
-/* Flap starts folded down */
 .flap {
   position: absolute;
   width: 120px;
@@ -58,15 +53,13 @@ body {
   clip-path: polygon(0 100%, 50% 0, 100% 100%);
   transform-origin: bottom;
   transition: transform 0.6s;
-  transform: rotateX(180deg); /* flap starts closed */
+  transform: rotateX(180deg);
 }
 
-/* Flap opens when envelope has "open" */
 .envelope.open .flap {
   transform: rotateX(0deg);
 }
 
-/* Name under envelope */
 .name {
   margin-top: 10px;
   color: white;
@@ -74,7 +67,6 @@ body {
   text-shadow: 0 0 5px black;
 }
 
-/* Letters */
 .letter-box {
   display: none;
   position: fixed;
@@ -90,13 +82,11 @@ body {
   transform: translate(-50%, -50%);
 }
 
-/* Fade in letters */
 @keyframes fadeIn {
   0% { opacity: 0; transform: scale(0.8) translate(-50%, -50%); }
   100% { opacity: 1; transform: scale(1) translate(-50%, -50%); }
 }
 
-/* Close button */
 .closeBtn {
   margin-top: 15px;
   padding: 8px 15px;
@@ -107,7 +97,6 @@ body {
   cursor: pointer;
 }
 
-/* Hearts animation */
 .heart {
   position: fixed;
   color: #ff4d6d;
@@ -120,16 +109,6 @@ body {
   100% { opacity: 0; transform: translateY(-150px); }
 }
 
-/* Mobile responsive adjustments */
-@media (max-width: 600px) {
-  .bg-container { gap: 20px; }
-  .envelope { width: 90px; height: 60px; }
-  .flap { width: 90px; height: 45px; }
-  .letter-box { max-width: 90%; padding: 20px; }
-  .heart { font-size: 16px; }
-}
-
-/* Background gradient */
 body::before {
   content: '';
   position: absolute;
@@ -143,93 +122,71 @@ body::before {
 
 <body>
 
-<!-- Background music -->
 <audio id="bgMusic" loop playsinline>
   <source src="aphrodite.mp3" type="audio/mpeg">
 </audio>
 
-<!-- Background container -->
 <div class="bg-container" id="bgContainer">
 
-  <div class="envelope-box" data-num="1" data-pass="Lysiee">
-    <div class="envelope" id="env1">
-      <div class="flap"></div>
-    </div>
-    <div class="name">Yumi</div>
-  </div>
-
-  <div class="envelope-box" data-num="2" data-pass="Lyle">
-    <div class="envelope" id="env2">
-      <div class="flap"></div>
-    </div>
+  <div class="envelope-box" onclick="openEnvelope(1)">
+    <div class="envelope" id="env1"><div class="flap"></div></div>
     <div class="name">Jewold</div>
   </div>
 
-  <div class="envelope-box" data-num="3" data-pass="Twin bitches">
-    <div class="envelope" id="env3">
-      <div class="flap"></div>
-    </div>
-    <div class="name">Leo</div>
+  <div class="envelope-box" onclick="openEnvelope(2)">
+    <div class="envelope" id="env2"><div class="flap"></div></div>
+    <div class="name">Yumi</div>
   </div>
 
-  <div class="envelope-box" data-num="4" data-pass="dudung clark">
-    <div class="envelope" id="env4">
-      <div class="flap"></div>
-    </div>
+  <div class="envelope-box" onclick="openEnvelope(3)">
+    <div class="envelope" id="env3"><div class="flap"></div></div>
     <div class="name">LongLong</div>
+  </div>
+
+  <div class="envelope-box" onclick="openEnvelope(4)">
+    <div class="envelope" id="env4"><div class="flap"></div></div>
+    <div class="name">Jeo</div>
   </div>
 
 </div>
 
 <!-- LETTERS -->
 <div id="letter1" class="letter-box">
-<h2>To Athanasia💗</h2>
-<p> Happy birthday sa among shudita nga pinalanggang Rygrace, always rami naa ni Lhoryn sa imong mga drama sa life ug sa love life, naa rami ig need nimog tabang or masandalan ready permi ang among kwarta arun mang gasto tang tulo sa mga walay pulos nga mga butang HAHAHAHA, btw dai Happy birthday lablab mwaps🫶</p>
+<h2>From Jewold 💗</h2>
+<p>Your message here...</p>
 <button class="closeBtn" onclick="closeLetter()">Close</button>
 </div>
 
 <div id="letter2" class="letter-box">
-<h2>To Athanasia💗</h2>
-<p>Hi or hello vodi i just wanted to let you know na sorry sa akong gipang ingun about ato na bae i'll take it back ik mali ko wala lang jud ko na aware na ingatu diay mahitabu and ik bad akong gipang ingun. peru naanad naman kos amoa diri na normal nana so sorry kaayu hope you understand and maka forgive pabaka nako ma friend or dili na and i'll accept it i'm the one who did a mistake that hurts someone. sorry kaay usa tanan (sorry sa english bisaya ko na tao).</p>
+<h2>From Yumi 💗</h2>
+<p>Happy birthday sa among shudita nga pinalanggang Rygrace, always rami naa ni Lhoryn sa imong mga drama sa life ug sa love life, naa rami ig need nimog tabang or masandalan ready permi ang among kwarta arun mang gasto tang tulo sa mga walay pulos nga mga butang HAHAHAHA, btw dai Happy birthday lablab mwaps🫶</p>
 <button class="closeBtn" onclick="closeLetter()">Close</button>
 </div>
 
 <div id="letter3" class="letter-box">
-<h2>To Kiers 💗</h2>
-<p>Heloo kiers akong twin bitches gibuhat tani para sainyu na morelikely apology letter bani or unsa ba gi tibu nalang nako. sorry diay sa akong nabuhat og na nalain mo nako hate bana, untag mahimaut na di na nako ma utro og mag bantay nakus mga words nako na nakasakit ato na tao so sorry kaayu sa akong na buhat og maka forgive baka nako (sorry sa english bisaya ko na tao)</p>
+<h2>To LongLong 💗</h2>
+<p>Your message here...</p>
 <button class="closeBtn" onclick="closeLetter()">Close</button>
 </div>
 
 <div id="letter4" class="letter-box">
-<h2>To Clark 💗</h2>
-<p>Halo baiiiiiiiii dudung clark sorry og naka nasakitan ka sa akong nabuhat or ambut lang nasakitan baka or nalain nako sorry sa akong nabuhat papart clark untag goods nata sunod perug di ako nalay mo layu peace &lt;3 Sorry sa akonng nabuhat bai mahimaut or mahintunudan nato na di na unta nako. madawat pabako nimo na amigo (bisan dili migo) sa akong nabuhat. untag enough nani akong effort.</p>
+<h2>To Jeo 💗</h2>
+<p>Your message here...</p>
 <button class="closeBtn" onclick="closeLetter()">Close</button>
 </div>
 
 <script>
-// Password check with toggle
-function checkPassword(num, correctPass) {
-  let userPass = prompt("Enter password:");
+function openEnvelope(num){
   const envelope = document.getElementById("env"+num);
   const bg = document.getElementById("bgContainer");
 
-  if(userPass === correctPass){
-    envelope.classList.toggle("open"); // toggle open/close
+  envelope.classList.add("open");
+  bg.classList.add("blur");
 
-    if(envelope.classList.contains("open")){
-      bg.classList.add("blur");
-      explodeHearts();
-      openLetter(num);
-    } else {
-      bg.classList.remove("blur");
-      closeLetter();
-    }
-  } else {
-    alert("Wrong password 💔");
-  }
+  explodeHearts();
+  openLetter(num);
 }
 
-// Open letter
 function openLetter(num){
   document.getElementById("letter"+num).style.display="block";
   const music = document.getElementById("bgMusic");
@@ -238,13 +195,13 @@ function openLetter(num){
   }
 }
 
-// Close all letters
 function closeLetter(){
   document.querySelectorAll(".letter-box").forEach(l=>l.style.display="none");
   document.getElementById("bgContainer").classList.remove("blur");
+
+  document.querySelectorAll(".envelope").forEach(e=>e.classList.remove("open"));
 }
 
-// Heart animation
 function explodeHearts(){
   for(let i=0;i<20;i++){
     const heart = document.createElement("div");
@@ -256,15 +213,6 @@ function explodeHearts(){
     setTimeout(()=>heart.remove(),2000);
   }
 }
-
-// Mobile-friendly click events
-document.querySelectorAll('.envelope-box').forEach(box => {
-  box.addEventListener('click', e => {
-    const num = box.dataset.num;
-    const pass = box.dataset.pass;
-    checkPassword(num, pass);
-  });
-});
 </script>
 
 </body>
