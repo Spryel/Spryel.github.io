@@ -59,6 +59,19 @@ body {
   100% { transform: translate(0,0); }
 }
 
+/* 🦖 BIG DINOS (NEW) */
+.big-dino {
+  position: absolute;
+  font-size: 80px;
+  animation: bigDinoMove 6s infinite ease-in-out;
+}
+
+@keyframes bigDinoMove {
+  0% { transform: translateX(0); }
+  50% { transform: translateX(50px); }
+  100% { transform: translateX(0); }
+}
+
 /* 🖼 IMAGES */
 .floating-img {
   position: absolute;
@@ -155,6 +168,16 @@ body {
   animation: fall 3s linear forwards;
 }
 
+/* 🎊 BACKGROUND CONFETTI (NEW) */
+.bg-confetti {
+  position: fixed;
+  width: 4px;
+  height: 8px;
+  top: -10px;
+  animation: fall 5s linear infinite;
+  opacity: 0.6;
+}
+
 @keyframes fall {
   to { transform: translateY(100vh) rotate(360deg); }
 }
@@ -173,9 +196,15 @@ body {
 <div class="star" style="top:40%;left:80%">⭐</div>
 <div class="star" style="top:70%;left:30%">⭐</div>
 
-<!-- 🦖 🐔 -->
+<!-- 🦖 🐔 EXTRA FLOATING (NEW) -->
 <div class="float-emoji" style="top:20%;left:70%">🦖</div>
 <div class="float-emoji" style="top:60%;left:20%">🐔</div>
+<div class="float-emoji" style="top:30%;left:50%">🦖</div>
+<div class="float-emoji" style="top:80%;left:30%">🐔</div>
+
+<!-- 🦖 BIG DINOS (NEW) -->
+<div class="big-dino" style="top:75%;left:30%">🦖</div>
+<div class="big-dino" style="top:75%;left:50%">🦖</div>
 
 <!-- 🎈 -->
 <div class="balloon" style="left:10%"></div>
@@ -183,6 +212,7 @@ body {
 
 <div class="bg-container">
 
+<!-- (UNCHANGED ENVELOPES) -->
 <div class="envelope-box" onclick="openEnvelope(1)">
 <div class="envelope" id="env1"><div class="flap"></div></div>
 <div class="name">Yumi</div></div>
@@ -220,7 +250,7 @@ body {
 function openEnvelope(num){
 
 let pass = prompt("Enter password:");
-if(pass !== "4/16/2026"){
+if(pass !== "0416"){
   alert("Wrong password 💔");
   return;
 }
@@ -259,6 +289,16 @@ document.body.appendChild(c);
 setTimeout(()=>c.remove(),3000);
 }
 }
+
+/* 🎊 BACKGROUND CONFETTI (NEW AUTO FALL) */
+setInterval(()=>{
+let c=document.createElement("div");
+c.className="bg-confetti";
+c.style.left=Math.random()*100+"vw";
+c.style.background=`hsl(${Math.random()*360},100%,50%)`;
+document.body.appendChild(c);
+setTimeout(()=>c.remove(),5000);
+},300);
 </script>
 
 </body>
